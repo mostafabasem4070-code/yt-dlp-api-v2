@@ -1,0 +1,210 @@
+/* ==========================================================================
+   MODERNIZE CHARTS & TELEMETRY LIVE MONITORING STYLES
+   Inspired by Modernize ApexCharts & Vuetify Metrics
+   ========================================================================== */
+
+/* Telemetry Main Container */
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 980px) {
+    .telemetry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Telemetry Chart Card */
+.telemetry-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.telemetry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.telemetry-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.telemetry-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.telemetry-icon.cpu {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.telemetry-icon.ram {
+    background: var(--secondary-light);
+    color: var(--secondary);
+}
+
+.telemetry-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.telemetry-subtitle {
+    font-size: 0.76rem;
+    color: var(--text-subtle);
+    margin-top: 2px;
+}
+
+.telemetry-current-val {
+    font-size: 1.75rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: var(--text-main);
+}
+
+.telemetry-current-val.cpu { color: var(--primary); }
+.telemetry-current-val.ram { color: var(--secondary); }
+
+/* Canvas Chart Wrapper */
+.chart-canvas-wrap {
+    width: 100%;
+    height: 190px;
+    position: relative;
+    margin: 10px 0 16px;
+}
+
+.chart-canvas-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Telemetry Footer Meta */
+.telemetry-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.telemetry-meta-item strong {
+    color: var(--text-main);
+    font-family: var(--font-mono);
+}
+
+/* Circular Metric Summary Cards */
+.mini-telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+    .mini-telemetry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 540px) {
+    .mini-telemetry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mini-telemetry-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-normal);
+}
+
+.mini-telemetry-card:hover {
+    transform: translateY(-2px);
+}
+
+.mini-telemetry-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mini-telemetry-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-telemetry-label {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.mini-telemetry-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    margin-top: 3px;
+}
+
+/* Progress Bars */
+.res-progress-wrap {
+    width: 100%;
+    height: 7px;
+    background-color: var(--border-subtle);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.res-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.35s ease;
+}
+
+.res-progress-fill.cyan { background: linear-gradient(90deg, #5D87FF, #49BEFF); }
+.res-progress-fill.purple { background: linear-gradient(90deg, #49BEFF, #7499FF); }
+.res-progress-fill.emerald { background: linear-gradient(90deg, #13DEB9, #2FE3C2); }
+.res-progress-fill.amber { background: linear-gradient(90deg, #FFAE1F, #FA896B); }
+
+/* Pulse animation */
+.pulse-live {
+    animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.15); }
+    100% { opacity: 1; transform: scale(1); }
+}
