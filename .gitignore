@@ -21,3 +21,5 @@ extraction_stats.db-wal
 .browser_profile/
 deploy_to_github.bat
 deploy_to_github.ps1
+deploy_repos.json
+.deploy_repos.json
